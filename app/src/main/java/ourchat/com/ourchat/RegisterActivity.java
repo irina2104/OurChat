@@ -10,7 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.Response;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,10 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        registerButton = (Button)findViewById(R.id.registerButton);
-        login = (TextView)findViewById(R.id.login);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        registerButton = findViewById(R.id.registerButton);
+        login = findViewById(R.id.login);
 
         Firebase.setAndroidContext(this);
 
@@ -62,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                     password.setError("at least 5 characters long");
                 }
                 else {
-                    final ProgressDialog pd = new ProgressDialog(Register.this);
+                    final ProgressDialog pd = new ProgressDialog(RegisterActivity.this);
                     pd.setMessage("Loading...");
                     pd.show();
 

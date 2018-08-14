@@ -1,0 +1,4 @@
+[submodule "AndroidGitSubmoduleAsModule"]
+	path = AndroidGitSubmoduleAsModule
+	url = https://github.com/arpitratan/AndroidGitSubmoduleAsModule
+	branch = master
